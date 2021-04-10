@@ -1,6 +1,6 @@
 // document.querySelector("#searchPage_entry > div > div:nth-child(1) > ul.mean_list > li > p");
 
-Class enkr_KoreanDict {
+class enkr_KoreanDict {
     // constructor() {
     //     this.options = null;
         // this.maxexample = 2;
