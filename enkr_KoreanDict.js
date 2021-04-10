@@ -44,7 +44,7 @@ class enkr_KoreanDict {
     async findYoudao(word) {
         if (!word) return [];
 
-        let base = 'http://korean.dict.naver.com/koendict/#/search?query=';
+        let base = 'https://korean.dict.naver.com/koendict/#/search?query=';
         let url = base + encodeURIComponent(word);
         let doc = '';
         try {
@@ -62,7 +62,7 @@ class enkr_KoreanDict {
             let notes = [];
 
             //get Youdao EC data: check data availability
-            let defNodes = doc.querySelectorAll('#phrsListTab .trans-container ul li');
+            let defNodes = doc.querySelectorAll('#searchPage_entry > div > div:nth-child(1) > ul.mean_list > li > p');
             if (!defNodes || !defNodes.length) return notes;
 
             //get headword and phonetic
