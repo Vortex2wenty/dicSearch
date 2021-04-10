@@ -23,7 +23,7 @@ class koen_Naver {
     async findCollins(word) {
         if (!word) return null;
 
-        let base = 'https://korean.dict.naver.com/koendict/#/search?query=';
+        let base = 'https://krdict.korean.go.kr/eng/dicSearch/search?mainSearchWord=';
         let url = base + encodeURIComponent(word);
         let doc = '';
         try {
@@ -36,7 +36,7 @@ class koen_Naver {
         }
 
         // doc.querySelector("#searchPage_entry > div > div:nth-child(1)").remove();
-        let content = doc.querySelector('#searchPage_entry > div > div:nth-child(1)') || '';
+        let content = doc.querySelector('#container > div > form > div > div.sub_left > div.search_result.mt25.printArea > dl:nth-child(1) > dd:nth-child(2)') || '';
         if (!content) return null;
         let css = this.renderCSS();
         return css + content.innerHTML;
