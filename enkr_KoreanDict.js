@@ -139,5 +139,3 @@ Class enkr_KoreanDict {
 
     }
 }
-
-}
