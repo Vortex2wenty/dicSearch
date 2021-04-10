@@ -23,7 +23,8 @@ class koen_Naver {
     async findCollins(word) {
         if (!word) return null;
 
-        let url = `https://krdict.korean.go.kr/eng/dicSearch/search?mainSearchWord=${word}&nation=eng&nationCode=6`;
+        let url = `http://www.kdict.org/search?q=${word}`;
+        console.log(url);
         // let url = base + encodeURIComponent(word);
         let doc = '';
         try {
@@ -36,7 +37,11 @@ class koen_Naver {
         }
 
         // doc.querySelector("#searchPage_entry > div > div:nth-child(1)").remove();
-        let content = doc.querySelector('#container > div > form > div > div.sub_left > div.search_result.mt25.printArea > dl:nth-child(1) > dd:nth-child(2)') || '';
+        let content = doc.querySelector("#serp > ul:nth-child(1) > li:nth-child(1)") || '';
+        // document.querySelector("#container > div > form > div > div.sub_left > div.search_result.mt25.printArea > dl:nth-child(1) > dd:nth-child(2)");
+        // document.querySelector("#container > div > form > div > div.sub_left > div.search_result.mt25.printArea > dl:nth-child(1)")
+        // document.querySelector("#serp > ul:nth-child(1) > li:nth-child(1)")
+        console.log('Content: ' + content);
         if (!content) return null;
         let css = this.renderCSS();
         return css + content.innerHTML;
