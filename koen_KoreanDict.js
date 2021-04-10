@@ -31,6 +31,7 @@ class koen_Naver {
             let parser = new DOMParser();
             doc = parser.parseFromString(data, 'text/html');
         } catch (err) {
+            console.log('Error with loading page.')
             return null;
         }
 
