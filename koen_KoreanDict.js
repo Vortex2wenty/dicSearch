@@ -23,15 +23,15 @@ class koen_Naver {
     async findCollins(word) {
         if (!word) return null;
 
-        let base = 'https://krdict.korean.go.kr/eng/dicSearch/search?mainSearchWord=';
-        let url = base + encodeURIComponent(word);
+        let url = `https://krdict.korean.go.kr/eng/dicSearch/search?mainSearchWord=${word}&nation=eng&nationCode=6`;
+        // let url = base + encodeURIComponent(word);
         let doc = '';
         try {
             let data = await api.fetch(url);
             let parser = new DOMParser();
             doc = parser.parseFromString(data, 'text/html');
         } catch (err) {
-            console.log('Error with loading page.')
+            console.log('Error with loading page: ' + err);
             return null;
         }
 
